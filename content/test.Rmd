@@ -5,7 +5,7 @@ date: "November 19, 2017"
 output: html_document
 ---
 
-Here is my resume[resume](personal/Sriram_Sambasivam_Analytics.docx)
+Here is my [resume](../personal/Sriram_Sambasivam_Analytics.docx)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
