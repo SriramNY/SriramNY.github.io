@@ -1,3 +1,0 @@
-/feed/     /index.xml
-https://simplystats.netlify.com/*  https://simplystatistics.org/:splat  301!
-http://simplystats.netlify.com/*   https://simplystatistics.org/:splat  301!
