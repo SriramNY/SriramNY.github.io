@@ -15,7 +15,7 @@ paginate = 10
 [params]
   # Shown in the home page
   subtitle = "Personal blog"
-  brand = "![Logo](/img/sriram.png)"
+  brand = "Yoshiharu<br>Yamashita"
   googleAnalytics = ""
   disqus = ""
   # CSS name for highlight.js
