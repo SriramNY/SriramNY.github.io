@@ -1,6 +1,6 @@
 baseurl = "https://sriram.netlify.com/"
 languageCode = "en-us"
-title = "Sriram Sambasivam"
+title = "Datum"
 theme = "blackburn"
 author = "Sriram Sambasivam"
 copyright = "&copy; 2017. All rights reserved."
@@ -15,7 +15,7 @@ paginate = 10
 [params]
   # Shown in the home page
   subtitle = "Personal blog"
-  brand = "Yoshiharu<br>Yamashita"
+  brand = "Sriram<br>Sambasivam"
   googleAnalytics = ""
   disqus = ""
   # CSS name for highlight.js
