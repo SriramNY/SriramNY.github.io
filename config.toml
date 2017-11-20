@@ -1,45 +1,59 @@
-baseurl = "/"
+baseurl = "https://sriram.netlify.com/"
 languageCode = "en-us"
-title = "Datum"
-theme = "hugo-lithium-theme"
-googleAnalytics = ""
-disqusShortname = ""
+title = "Sriram Sambasivam"
+theme = "blackburn"
+author = "Sriram Sambasivam"
+copyright = "&copy; 2017. All rights reserved."
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+canonifyurls = true
+paginate = 10
 
-[permalinks]
-    post = "/:year/:month/:day/:slug/"
-
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-    
-[[menu.main]]
-    name = "GitHub"
-    url = "https://github.com/SriramNY/SriramNY.github.io"
-    
-[[menu.main]]
-    name = "Linkedin"
-    url = "https://www.linkedin.com/in/srirampsambasivam/"
-
-[[menu.main]]
-    name = "Twitter"
-    url = "https://twitter.com/SriramSNY"
+[indexes]
+  tag = "tags"
+  topic = "topics"
 
 [params]
-    description = "A website built through Hugo and blogdown."
+  # Shown in the home page
+  subtitle = "Personal blog"
+  brand = "![Logo](/img/sriram.png)"
+  googleAnalytics = ""
+  disqus = ""
+  # CSS name for highlight.js
+  highlightjs = "androidstudio"
+  dateFormat = "02 Jan 2006, 15:04"
 
-    # options for highlight.js (version, additional languages, and theme)
-    highlightjsVersion = "9.11.0"
-    highlightjsCDN = "//cdn.bootcss.com"
-    highlightjsLang = ["r", "yaml"]
-    highlightjsTheme = "github"
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "Home"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 1
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "Posts"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 2
+    identifier = "post"
+    url = "/post/"
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 3
+    identifier = "about"
+    url = "/about/"
+  [[menu.main]]
+    name = "Contact"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 4
+    url = "/contact/"
 
-    MathJaxCDN = "//cdn.bootcss.com"
-    MathJaxVersion = "2.7.1"
-
-    [params.logo]
-    url = "logo.png"
-    width = 50
-    height = 50
-    alt = "Logo"
-
+[social]
+  # Link your social networking accouns to the side menu
+  # by entering your username or ID.
+  twitter = "SriramSNY"
+  facebook = "*"
+  instagram = "*"
+  github = "SriramNY"
+  stackoverflow = "*"
+  linkedin = "srirampsambasivam"
