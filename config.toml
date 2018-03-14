@@ -1,7 +1,7 @@
 baseurl = "https://sriram.netlify.com/"
 languageCode = "en-us"
 title = "Blog"
-theme = "blackburn"
+theme = "minimal"
 author = "Sriram Sambasivam"
 copyright = "&copy; 2018. All rights reserved."
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
@@ -43,20 +43,6 @@ paginate = 10
     weight = 2
     identifier = "post"
     url = "/post/"
-    
-   [[menu.main]]
-    name = "Topics"
-    pre = "<i class='fa fa-folder fa-fw'></i>"
-    weight = 3
-    identifier = "topic"
-    url = "/topics/"
-    
-  [[menu.main]]
-    name = "Tags"
-    pre = "<i class='fa fa-tags fa-fw'></i>"
-    weight = 4
-    identifier = "tag"
-    url = "/tags/"
     
 [social]
   # Link your social networking accouns to the side menu
