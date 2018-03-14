@@ -44,12 +44,12 @@ paginate = 10
     identifier = "post"
     url = "/post/"
     
-  # [[menu.main]]
-  #  name = "Topics"
-  #  pre = "<i class='fa fa-folder fa-fw'></i>"
-  #  weight = 3
-  #  identifier = "topic"
-  #  url = "/topics/"
+   [[menu.main]]
+    name = "Topics"
+    pre = "<i class='fa fa-folder fa-fw'></i>"
+    weight = 3
+    identifier = "topic"
+    url = "/topics/"
     
   [[menu.main]]
     name = "Tags"
