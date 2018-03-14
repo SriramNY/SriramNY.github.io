@@ -1,0 +1,150 @@
+---
+title: Partioning Around Medoids
+author: Sriram Sambasivam
+date: '2018-03-13'
+slug: partioning-around-medoids
+categories:
+  - R
+tags:
+  - Clustering
+  - PAM
+---
+
+
+
+<div id="medoids" class="section level2">
+<h2>Medoids</h2>
+<ul>
+<li>these are representative objects whose average dissimilarity of all the objects in the cluster in minimal.</li>
+<li>they are always restricted to be <strong>members</strong> of the data set.</li>
+<li>are most commonly used on data when a mean or centroid cannot be defined, such as graphs.</li>
+<li>for some datasets there may be more than one medoids.</li>
+</ul>
+<p>more details <a href="https://en.wikipedia.org/wiki/Medoid">here</a></p>
+</div>
+<div id="pam-algorithm" class="section level2">
+<h2>PAM Algorithm</h2>
+<p><span class="math display">\[F(x) = minimize \sum_{i=1}^{n}\sum_{j=1}^{n}  d(i,j)  z_{i,j}\]</span> <img src="data/subject_to.png" alt="Subject to:" /></p>
+<p>where, F(x) is the function to minimize, d(i,j) is the dissimilarity measurement between the entities i and j, Z(ij - subscript) variable that ensures that only the dissimilarity between entities from the same cluster will be compiter in the main function,</p>
+<div id="constraints" class="section level6">
+<h6>Constraints</h6>
+<ol style="list-style-type: decimal">
+<li>ensures that every single entity is assigned to one cluster and only one cluster.</li>
+<li>ensures that the entity is assigned to its medoid that represent the cluster.</li>
+<li>ensures that there are exactly k clusters.</li>
+<li>lets the decision variables assume just the values of 0 and 1.</li>
+</ol>
+</div>
+<div id="build-phase" class="section level5">
+<h5>Build phase</h5>
+<ol style="list-style-type: decimal">
+<li>Choose k entities to become the medoids, or in case these entities were provided use them as the medoids,</li>
+<li>Calculate the dissimilarity matrix if it was not informed,</li>
+<li>Assign every entity to its closest medoid,</li>
+</ol>
+</div>
+<div id="swap-phase" class="section level5">
+<h5>Swap phase</h5>
+<ol start="4" style="list-style-type: decimal">
+<li>For each cluster search if any of the entities of the cluster lower the average dissimilarity coefficient, if it does select the entity that lowers this coefficient the most as the medoid for this cluster;</li>
+<li>If at least one medoid has changed go to (3), else end the algorithm.</li>
+</ol>
+</div>
+<div id="formulation" class="section level5">
+<h5>Formulation</h5>
+<p>Given a finite number of users, whose demands for some service are known and must be satisfied, and given a finite set of possible locations among which k must be chosen for the location of service centers, select the locations in such a way as to minimize the total distance travelled by users[2].</p>
+</div>
+<div id="acceptable-inputs" class="section level4">
+<h4>Acceptable Inputs</h4>
+<ol style="list-style-type: decimal">
+<li>matrix representing every entity and the values of its variables.</li>
+<li>dissimilarity matrix - here we can provide dissimilarity directly as an i/p to the algorithm, instead of data matrix containing the entitites.</li>
+</ol>
+</div>
+<div id="data-input-sample-data" class="section level3">
+<h3>Data Input: sample data</h3>
+<pre class="r"><code>#### data ingest 
+  sales            &lt;- fread(&quot;data/sales_rnd.csv&quot;) %&gt;% data.frame()
+
+#### Pre-processing
+  rownames(sales)  &lt;- paste0(&quot;S-&quot;,rownames(sales))
+  tsales           &lt;- as.ts(t(sales))
+  head(tsales[,1:5])</code></pre>
+<pre><code>##        S-1   S-2   S-3   S-4   S-5
+## [1,] 0.680 0.735 0.649 0.722 0.698
+## [2,] 0.724 0.907 0.650 0.692 0.775
+## [3,] 0.608 0.687 0.650 0.573 0.674
+## [4,] 0.758 0.907 0.737 0.759 0.713
+## [5,] 0.771 0.799 0.731 0.775 0.840
+## [6,] 0.753 0.901 0.670 0.716 0.871</code></pre>
+<pre class="r"><code>   tail(tsales[,1015:1020])</code></pre>
+<pre><code>##       S-1015 S-1016 S-1017 S-1018 S-1019 S-1020
+## [47,]  0.875  1.204  1.113  1.199  1.135  1.079
+## [48,]  1.088  1.024  1.114  0.847  0.935  1.022
+## [49,]  1.202  1.137  1.171  1.142  1.186  1.257
+## [50,]  1.368  1.034  1.210  1.167  1.318  0.968
+## [51,]  0.946  0.970  0.926  0.793  0.991  1.069
+## [52,]  1.315  1.128  1.001  0.848  1.009  1.030</code></pre>
+</div>
+<div id="distance-calculation" class="section level3">
+<h3>Distance Calculation</h3>
+<pre class="r"><code># DTWARP distance
+  # DTWARP.dis.x     &lt;- dtw(x,y, step.pattern=asymmetric,  window.type = &quot;sakoechiba&quot; , window.size = 6) 
+  # DTWARP.dis.2     &lt;- diss(tsales, &quot;DTWARP&quot;, step.pattern=asymmetric,  window.type = &quot;sakoechiba&quot;  , window.size = 6)
+    load(&quot;C:/Users/Sriram/OneDrive - Texas A&amp;M International University/Github/SriramNY.github.io/content/post/data/DTWARP.dis.2.rdata&quot;)
+    head(DTWARP.dis.2)  </code></pre>
+<pre><code>## [1] 4.214 2.720 2.959 3.458 2.695 7.063</code></pre>
+</div>
+<div id="clustering" class="section level3">
+<h3>Clustering</h3>
+<pre class="r"><code># PAM Clustering
+    dtwarp.2.pamclus.all &lt;- pam(DTWARP.dis.2, k = 5, FALSE, &quot;euclidean&quot;)    
+    dtwarp.2.pamclus     &lt;- data.frame(cl = dtwarp.2.pamclus.all$clustering)
+    
+# custom summary function for detailed info   
+    # simple.summary(dtwarp.2.pamclus.all)</code></pre>
+</div>
+<div id="silhoutte-plot" class="section level3">
+<h3>Silhoutte Plot</h3>
+<div id="distance-dtwarp-clustering-algorithm-pam-k-3" class="section level5">
+<h5>distance = DTWARP, clustering algorithm = PAM, K = 3</h5>
+<p><img src="/post/2018-03-13-partioning-around-medoids_files/figure-html/fig1-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="distance-dtwarp-clustering-algorithm-pam-k-4" class="section level5">
+<h5>distance = DTWARP, clustering algorithm = PAM, K = 4</h5>
+<p><img src="/post/2018-03-13-partioning-around-medoids_files/figure-html/fig2-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="distance-dtwarp-clustering-algorithm-pam-k-5" class="section level5">
+<h5>distance = DTWARP, clustering algorithm = PAM, K = 5</h5>
+<p><img src="/post/2018-03-13-partioning-around-medoids_files/figure-html/fig3-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="distance-dtwarp-clustering-algorithm-pam-k-6" class="section level5">
+<h5>distance = DTWARP, clustering algorithm = PAM, K = 6</h5>
+<p><img src="/post/2018-03-13-partioning-around-medoids_files/figure-html/fig4-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="cluster-evaluation" class="section level3">
+<h3>Cluster Evaluation</h3>
+<ul>
+<li>Work in Progress</li>
+</ul>
+</div>
+<div id="conclusion" class="section level3">
+<h3>Conclusion</h3>
+<ul>
+<li>Work in Progress</li>
+</ul>
+</div>
+<div id="references" class="section level3">
+<h3>References</h3>
+<ol style="list-style-type: decimal">
+<li><a href="https://cran.r-project.org/web/packages/cluster/cluster.pdf" class="uri">https://cran.r-project.org/web/packages/cluster/cluster.pdf</a></li>
+<li>Kaufman, L., Rousseeuw, P. J., Clustering by Means of Medoids.</li>
+<li>Rousseeuw, P.J. (1987) Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. J. Comput. Appl. Math., 20, 53-65.</li>
+<li><a href="https://en.wikibooks.org/wiki/Data_Mining_Algorithms_In_R/Clustering/Partitioning_Around_Medoids_(PAM)" class="uri">https://en.wikibooks.org/wiki/Data_Mining_Algorithms_In_R/Clustering/Partitioning_Around_Medoids_(PAM)</a></li>
+<li><a href="https://www.cs.umb.edu/cs738/pam1.pdf" class="uri">https://www.cs.umb.edu/cs738/pam1.pdf</a></li>
+<li><a href="https://www.cse.buffalo.edu/faculty/azhang/cse601/partition-based.ppt" class="uri">https://www.cse.buffalo.edu/faculty/azhang/cse601/partition-based.ppt</a></li>
+<li><a href="https://www.stat.berkeley.edu/~s133/Cluster2a.html" class="uri">https://www.stat.berkeley.edu/~s133/Cluster2a.html</a></li>
+</ol>
+</div>
+</div>

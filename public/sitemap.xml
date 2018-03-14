@@ -3,58 +3,80 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://sriram.netlify.com/post/2016-12-30-hello-markdown/</loc>
+    <loc>/post/partioning-around-medoids/</loc>
+    <lastmod>2018-03-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2017-11-19T21:48:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-12-30-hello-markdown/</loc>
     <lastmod>2016-12-30T21:49:57-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://sriram.netlify.com/post/2015-07-23-r-rmarkdown/</loc>
+    <loc>/post/2015-07-23-r-rmarkdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://sriram.netlify.com/post/2015-01-01-lorem-ipsum/</loc>
+    <loc>/post/2015-01-01-lorem-ipsum/</loc>
     <lastmod>2015-01-01T13:09:13-06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://sriram.netlify.com/</loc>
-    <lastmod>2016-12-30T21:49:57-07:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2018-03-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sriram.netlify.com/tags/plot/</loc>
+    <loc>/tags/clustering/</loc>
+    <lastmod>2018-03-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/pam/</loc>
+    <lastmod>2018-03-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/plot/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sriram.netlify.com/post/</loc>
-    <lastmod>2016-12-30T21:49:57-07:00</lastmod>
+    <loc>/post/</loc>
+    <lastmod>2018-03-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sriram.netlify.com/tags/r-markdown/</loc>
+    <loc>/tags/r-markdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sriram.netlify.com/tags/regression/</loc>
+    <loc>/tags/regression/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sriram.netlify.com/tags/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/tags/</loc>
+    <lastmod>2018-03-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sriram.netlify.com/topics/</loc>
+    <loc>/topics/</loc>
     <priority>0</priority>
   </url>
   

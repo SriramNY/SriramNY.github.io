@@ -1,9 +1,9 @@
 baseurl = "https://sriram.netlify.com/"
 languageCode = "en-us"
-title = "Datum"
+title = "Blog"
 theme = "blackburn"
 author = "Sriram Sambasivam"
-copyright = "&copy; 2017. All rights reserved."
+copyright = "&copy; 2018. All rights reserved."
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 paginate = 10
 
@@ -13,7 +13,7 @@ paginate = 10
 
 [params]
   # Shown in the home page
-  subtitle = "Personal blog"
+  # subtitle = "Personal blog"
   brand = "Sriram<br>Sambasivam"
   googleAnalytics = ""
   disqus = ""
@@ -44,12 +44,12 @@ paginate = 10
     identifier = "post"
     url = "/post/"
     
-  [[menu.main]]
-    name = "Topics"
-    pre = "<i class='fa fa-folder fa-fw'></i>"
-    weight = 3
-    identifier = "topic"
-    url = "/topics/"
+  # [[menu.main]]
+  #  name = "Topics"
+  #  pre = "<i class='fa fa-folder fa-fw'></i>"
+  #  weight = 3
+  #  identifier = "topic"
+  #  url = "/topics/"
     
   [[menu.main]]
     name = "Tags"
