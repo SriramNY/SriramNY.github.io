@@ -1,7 +1,7 @@
 baseurl = "https://sriram.netlify.com/"
 languageCode = "en-us"
 title = "Blog"
-theme = "minimal"
+theme = "blackburn"
 author = "Sriram Sambasivam"
 copyright = "&copy; 2018. All rights reserved."
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
